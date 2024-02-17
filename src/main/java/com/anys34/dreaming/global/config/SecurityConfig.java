@@ -46,6 +46,7 @@ public class SecurityConfig {
                 .requestMatchers("/hashtag/upload").authenticated()
                 .requestMatchers("/user/day").authenticated()
                 .requestMatchers("/user/img").authenticated()
+                .requestMatchers("/user/nickname").authenticated()
                 .anyRequest().permitAll();
 
         http.exceptionHandling().authenticationEntryPoint(

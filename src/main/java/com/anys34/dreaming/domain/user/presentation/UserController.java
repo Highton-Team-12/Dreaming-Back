@@ -21,6 +21,7 @@ public class UserController {
     private final GoalService goalService;
     private final DayService dayService;
     private final ProfileImgUpdateService profileImgUpdateService;
+    private final NicknameService nicknameService;
 
     @GetMapping
     public UserInfoResponse profile() {
@@ -56,5 +57,10 @@ public class UserController {
     @PostMapping("/img")
     public void img(@RequestPart MultipartFile file) {
         profileImgUpdateService.execute(file);
+    }
+
+    @PostMapping("/nickname")
+    public void nickname(@RequestBody NicknameRequest nicknameRequest) {
+        nicknameService.execute(nicknameRequest.getNickname());
     }
 }
