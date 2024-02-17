@@ -74,4 +74,8 @@ public class User {
     public void updateYear(String year) {
         this.year = year;
     }
+
+    public void updateImg(String profileImg) {
+        this.profileImg = profileImg;
+    }
 }

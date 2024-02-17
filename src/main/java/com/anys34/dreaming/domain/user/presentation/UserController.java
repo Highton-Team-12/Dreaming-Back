@@ -8,6 +8,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 @RequiredArgsConstructor
 @RequestMapping("/user")
@@ -19,6 +20,7 @@ public class UserController {
     private final UserInfoService userInfoService;
     private final GoalService goalService;
     private final DayService dayService;
+    private final ProfileImgUpdateService profileImgUpdateService;
 
     @GetMapping
     public UserInfoResponse profile() {
@@ -49,5 +51,10 @@ public class UserController {
     @PostMapping("/day")
     public void day(@RequestBody DayGoalRequest dayGoalRequest) {
         dayService.execute(dayGoalRequest);
+    }
+
+    @PostMapping("/img")
+    public void img(@RequestPart MultipartFile file) {
+        profileImgUpdateService.execute(file);
     }
 }
