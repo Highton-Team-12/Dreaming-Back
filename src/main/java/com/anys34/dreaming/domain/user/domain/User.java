@@ -49,6 +49,10 @@ public class User {
         this.admin = false;
     }
 
+    public void hashTags(List<Hashtag> hashtags) {
+        this.hashtags = hashtags;
+    }
+
     public void goal(String goal) {
         this.goal = goal;
     }
