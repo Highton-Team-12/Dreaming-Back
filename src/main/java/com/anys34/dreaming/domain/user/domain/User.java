@@ -1,10 +1,13 @@
 package com.anys34.dreaming.domain.user.domain;
 
+import com.anys34.dreaming.domain.hashtag.domain.Hashtag;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -28,6 +31,14 @@ public class User {
     private String goal;
 
     private Boolean admin;
+
+    @ManyToMany
+    @JoinTable(
+            name = "user_hashtag",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "hashtag_id")
+    )
+    private List<Hashtag> hashtags;
 
     @Builder
     public User(String email, String nickname, String password, String profileImg) {
