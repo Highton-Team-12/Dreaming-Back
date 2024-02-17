@@ -11,6 +11,7 @@ public enum ErrorCode {
     USER_DUPLICATE(HttpStatus.BAD_REQUEST, "User Duplicate"), // 유저의 이메일이 중복됨
     USER_INCORRECT(HttpStatus.BAD_REQUEST, "User Incorrect"), // 이메일 혹은 비밀번호가 맞지 않음
     UNEXPECTED_TOKEN(HttpStatus.BAD_REQUEST, "Unexpected token"),
+    ADMIN_NOT(HttpStatus.BAD_REQUEST, "Not Admin"),
 
     EXPIRED_JWT(HttpStatus.UNAUTHORIZED, "Expired Jwt"), // 만료된 JWT
 

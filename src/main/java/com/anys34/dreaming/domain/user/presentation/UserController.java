@@ -22,6 +22,7 @@ public class UserController {
     private final DayService dayService;
     private final ProfileImgUpdateService profileImgUpdateService;
     private final NicknameService nicknameService;
+    private final AdminService adminService;
 
     @GetMapping
     public UserInfoResponse profile() {
@@ -31,6 +32,11 @@ public class UserController {
     @PostMapping("/login")
     public TokenResponse login(@RequestBody @Valid LoginRequest loginRequest) {
         return loginService.execute(loginRequest);
+    }
+
+    @PostMapping("/admin")
+    public TokenResponse admin(@RequestBody @Valid LoginRequest loginRequest) {
+        return adminService.execute(loginRequest);
     }
 
     @ResponseStatus(HttpStatus.CREATED)
