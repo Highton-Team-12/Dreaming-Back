@@ -1,6 +1,7 @@
 package com.anys34.dreaming.domain.comment.domain;
 
 import com.anys34.dreaming.domain.post.domain.Post;
+import com.anys34.dreaming.domain.user.domain.User;
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
@@ -22,9 +23,14 @@ public class Comment {
     @JoinColumn(name = "post_id")
     private Post post;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
     @Builder
-    public Comment(String text, Post post) {
+    public Comment(String text, Post post, User user) {
         this.text = text;
         this.post = post;
+        this.user = user;
     }
 }

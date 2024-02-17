@@ -48,6 +48,7 @@ public class SecurityConfig {
                 .requestMatchers("/user/img").authenticated()
                 .requestMatchers("/user/nickname").authenticated()
                 .requestMatchers("/post").authenticated()
+                .requestMatchers("/comment").authenticated()
                 .anyRequest().permitAll();
 
         http.exceptionHandling().authenticationEntryPoint(
