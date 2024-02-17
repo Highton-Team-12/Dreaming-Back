@@ -1,14 +1,12 @@
 package com.anys34.dreaming.domain.user.presentation;
 
 import com.anys34.dreaming.domain.user.presentation.dto.req.EmailRequest;
+import com.anys34.dreaming.domain.user.presentation.dto.req.GoalRequest;
 import com.anys34.dreaming.domain.user.presentation.dto.req.LoginRequest;
 import com.anys34.dreaming.domain.user.presentation.dto.req.SignupRequest;
 import com.anys34.dreaming.domain.user.presentation.dto.res.TokenResponse;
 import com.anys34.dreaming.domain.user.presentation.dto.res.UserInfoResponse;
-import com.anys34.dreaming.domain.user.service.EmailDuplicationService;
-import com.anys34.dreaming.domain.user.service.LoginService;
-import com.anys34.dreaming.domain.user.service.SignupService;
-import com.anys34.dreaming.domain.user.service.UserInfoService;
+import com.anys34.dreaming.domain.user.service.*;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -22,6 +20,7 @@ public class UserController {
     private final SignupService signupService;
     private final EmailDuplicationService emailDuplicationService;
     private final UserInfoService userInfoService;
+    private final GoalService goalService;
 
     @GetMapping
     public UserInfoResponse profile() {
@@ -42,5 +41,10 @@ public class UserController {
     @PostMapping("/email")
     public void checkEmail(@RequestBody @Valid EmailRequest emailRequest) {
         emailDuplicationService.execute(emailRequest);
+    }
+
+    @PostMapping("/goal")
+    public void goal(@RequestBody @Valid GoalRequest goalRequest) {
+        goalService.execute(goalRequest.getGoal());
     }
 }

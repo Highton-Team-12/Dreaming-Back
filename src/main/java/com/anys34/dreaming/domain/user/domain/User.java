@@ -25,6 +25,8 @@ public class User {
     @Column(name = "profile_img")
     private String profileImg;
 
+    private String goal;
+
     private Boolean admin;
 
     @Builder
@@ -34,5 +36,9 @@ public class User {
         this.password = password;
         this.profileImg = profileImg;
         this.admin = false;
+    }
+
+    public void goal(String goal) {
+        this.goal = goal;
     }
 }
