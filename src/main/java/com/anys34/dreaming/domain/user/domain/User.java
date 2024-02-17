@@ -32,6 +32,12 @@ public class User {
 
     private Boolean admin;
 
+    private String week;
+
+    private String month;
+
+    private String year;
+
     @ManyToMany
     @JoinTable(
             name = "user_hashtag",
@@ -49,11 +55,23 @@ public class User {
         this.admin = false;
     }
 
-    public void hashTags(List<Hashtag> hashtags) {
+    public void updateHashTags(List<Hashtag> hashtags) {
         this.hashtags = hashtags;
     }
 
-    public void goal(String goal) {
+    public void updateGoal(String goal) {
         this.goal = goal;
+    }
+
+    public void updateWeek(String week) {
+        this.week = week;
+    }
+
+    public void updateMonth(String month) {
+        this.month = month;
+    }
+
+    public void updateYear(String year) {
+        this.year = year;
     }
 }

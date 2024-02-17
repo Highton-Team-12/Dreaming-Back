@@ -14,6 +14,6 @@ public class GoalService {
     @Transactional
     public void execute(String goal) {
         User user = userFacade.getCurrentUser();
-        user.goal(goal);
+        user.updateGoal(goal);
     }
 }

@@ -28,6 +28,6 @@ public class HashTagsSelectService {
 
         User user = userFacade.getCurrentUser();
 
-        user.hashTags(hashtags);
+        user.updateHashTags(hashtags);
     }
 }

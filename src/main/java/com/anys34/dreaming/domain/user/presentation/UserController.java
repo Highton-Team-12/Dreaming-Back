@@ -1,9 +1,6 @@
 package com.anys34.dreaming.domain.user.presentation;
 
-import com.anys34.dreaming.domain.user.presentation.dto.req.EmailRequest;
-import com.anys34.dreaming.domain.user.presentation.dto.req.GoalRequest;
-import com.anys34.dreaming.domain.user.presentation.dto.req.LoginRequest;
-import com.anys34.dreaming.domain.user.presentation.dto.req.SignupRequest;
+import com.anys34.dreaming.domain.user.presentation.dto.req.*;
 import com.anys34.dreaming.domain.user.presentation.dto.res.TokenResponse;
 import com.anys34.dreaming.domain.user.presentation.dto.res.UserInfoResponse;
 import com.anys34.dreaming.domain.user.service.*;
@@ -21,6 +18,7 @@ public class UserController {
     private final EmailDuplicationService emailDuplicationService;
     private final UserInfoService userInfoService;
     private final GoalService goalService;
+    private final DayService dayService;
 
     @GetMapping
     public UserInfoResponse profile() {
@@ -46,5 +44,10 @@ public class UserController {
     @PostMapping("/goal")
     public void goal(@RequestBody @Valid GoalRequest goalRequest) {
         goalService.execute(goalRequest.getGoal());
+    }
+
+    @PostMapping("/day")
+    public void day(@RequestBody DayGoalRequest dayGoalRequest) {
+        dayService.execute(dayGoalRequest);
     }
 }
