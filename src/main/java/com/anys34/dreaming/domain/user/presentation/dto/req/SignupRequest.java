@@ -22,7 +22,7 @@ public class SignupRequest {
     private String password;
 
     public User toEntity() {
-        return new User(email, nickname, password, "기본 이미지");
+        return new User(email, nickname, password);
     }
 
     public void passwordUpdate(String password) {

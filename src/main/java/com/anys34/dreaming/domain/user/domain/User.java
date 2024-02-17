@@ -47,11 +47,11 @@ public class User {
     private List<Hashtag> hashtags;
 
     @Builder
-    public User(String email, String nickname, String password, String profileImg) {
+    public User(String email, String nickname, String password) {
         this.email = email;
         this.nickname = nickname;
         this.password = password;
-        this.profileImg = profileImg;
+        this.profileImg = "https://url.kr/njphmd";
         this.admin = false;
     }
 
