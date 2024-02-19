@@ -1,6 +1,5 @@
 package com.anys34.dreaming.domain.post.presentation.dto.res;
 
-import com.anys34.dreaming.domain.comment.domain.Comment;
 import com.anys34.dreaming.domain.post.domain.Post;
 import com.anys34.dreaming.domain.post.service.CommentResponse;
 import lombok.Getter;
